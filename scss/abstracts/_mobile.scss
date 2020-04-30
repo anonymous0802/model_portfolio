@@ -1,0 +1,26 @@
+@include breakpoint(mobile) {
+    html {
+        font-size: 8px !important;
+    }
+    .home {
+        text-align: center;
+    }
+    header {
+        nav.menu {
+            flex-direction: column;
+            .branding {
+                width: 100vw;
+                height: 30vh;
+                transform: translate(-100%, 0);
+                .img-circle {
+                    width: 180px;
+                }
+            }
+            .nav {
+                width: 100vw;
+                height: 70vh;
+                transform: translate(100%, 0);
+            }
+        }
+    }
+}

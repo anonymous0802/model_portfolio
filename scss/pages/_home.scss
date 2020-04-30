@@ -1,0 +1,146 @@
+header {
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    .menu-btn {
+        position: absolute;
+        z-index: 100;
+        top: 3rem;
+        right: 3rem;
+        @include setTransition;
+        cursor: pointer;
+        &:hover .line-btn {
+           background-color: $clr-secondary;
+        } 
+
+        .line-btn {
+            width: 30px;
+            height: 4px;
+            margin-bottom: 5px;
+            background-color: setColor($clr-primary);
+            @include setTransition;
+        }
+
+        &.close {
+            transform: rotate(180deg);
+        }
+        
+        &.close .line-btn {
+            //rotate 45deg
+            &:nth-child(1) {
+                transform: rotate(45deg) translate(8px, 9px);;
+            }
+            //hidden
+            &:nth-child(2) {
+                opacity: 0;
+            }
+            //rotate -45deg
+            &:nth-child(3) {
+                transform: rotate(-45deg) translate(4px, -4px);
+            }
+        }
+
+    }
+
+    .menu {
+        width: 100vw;
+        height: 100vh; 
+        display: flex;
+        position: fixed;
+        visibility: hidden;
+        &.show {
+            visibility: visible;
+        }
+        .branding {
+            width: 45vw;
+            @include flexCenter;
+            @include setColorBackground(rgba(darken($clr-primary, 1), 0.8));
+            @include setTransition;
+            transform: translate(0, 100%);
+            .img-circle {
+                width: 220px;
+                border-radius: 50%;
+                border: 3px solid $clr-secondary;
+            }
+            &.show {
+                transform: translate(0, 0);
+            }
+        }
+        .nav {
+            width: 55vw;
+            @include flexCenter;
+            @include setColorBackground(rgba(darken($clr-primary, 2), 0.9));
+            @include setTransition;
+            transform: translate(0, -100%);
+            ul {
+                text-align: center;
+                .nav-item {
+                    margin-bottom: 2rem;
+                    transform: translate(600px, 0);
+                    @include setTransition;
+                    .nav-link {
+                        display: inline-block;
+                        font-size: 3rem;
+                        color: setColor($clr-primary);
+                        @include setTransition;
+                        &:hover {
+                            transform: scale(1.25);
+                            color: $clr-secondary;
+                        }
+                    }
+                    &:nth-child(1) {
+                        transition-delay: 0.1s;
+                    }
+                    &:nth-child(2) {
+                        transition-delay: 0.2s;
+                    }
+                    &:nth-child(3) {
+                        transition-delay: 0.3s;
+                    }
+                    &:nth-child(4) {
+                        transition-delay: 0.4s;
+                    }
+                    &.show {
+                        transform: translate(0, 0);
+                    }
+                }
+                .current > .nav-link {
+                    color: $clr-secondary;
+                }
+            }
+            &.show {
+                transform: translate(0, 0);
+            } 
+        }
+    }
+}
+
+
+.home {
+    .lg-heading {
+        font-size: 9rem;
+    }
+    .text-secondary{
+        color: $clr-secondary;
+    }
+    .sm-heading {
+        font-size: 3rem;
+        padding: 0 1rem;
+        @include setColorBackground(darken($clr-primary, 0.5))
+    }
+    .icons {
+        margin-top: 3rem;
+        a {
+            @include setColorBackground($clr-primary);
+            @include setTransition;
+            margin-right: 1rem;
+            cursor: pointer;
+
+            &:hover {
+                color: $clr-secondary;
+            }
+        }
+    }
+}

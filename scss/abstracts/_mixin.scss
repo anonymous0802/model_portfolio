@@ -1,0 +1,30 @@
+@function setColor($color) {
+    @if lightness($color) > 40 {
+        @return #000;
+    } @else {
+        @return #fff;
+    }
+}
+
+@mixin setColorBackground($color) {
+    background-color: $color;
+    color: setColor($color);
+}
+
+@mixin setTransition{
+    transition: all 0.4s ease-in-out;
+}
+
+@mixin flexCenter() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin breakpoint($device) {
+    @if $device == mobile {
+        @media screen and (max-width: 567px) {
+            @content;
+        }
+    }
+}
